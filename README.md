@@ -41,6 +41,15 @@ Make sure you include the following pages:
 #### Search Tweets (3 pts)
 - Show results of searched tweets
 
+### Notes
+You can create an array of tweet objects in your model like this:
+```
+book: [{
+          title : String,
+          author : String
+        }]
+```
+
 ### SMALL OFFSET CHALLENGE
 - Create an offset const in your code so you can easily change the number of tweets a user sees on the Home page
 

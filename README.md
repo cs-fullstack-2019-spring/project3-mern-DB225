@@ -44,6 +44,6 @@ Make sure you include the following pages:
 ### SMALL OFFSET CHALLENGE
 - Create an offset const in your code so you can easily change the number of tweets a user sees on the Home page
 
-### FOLLOW CHALLENGE
+### DIFFICULT FOLLOW CHALLENGE
 - Include an additional page to show tweets people you follow
 - - Add friends from the all tweets page by clicking on the “star” next to their name.

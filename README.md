@@ -42,13 +42,17 @@ Make sure you include the following pages:
 - Show results of searched tweets
 
 ### Notes
-You can create an array of tweet objects in your model like this:
+- You can create an array of tweet objects in your model like this:
 ```
 book: [{
           title : String,
           author : String
         }]
 ```
+
+- You can get rid of the mounting warning with this article: https://www.robinwieruch.de/react-warning-cant-call-setstate-on-an-unmounted-component/
+
+
 
 ### SMALL OFFSET CHALLENGE
 - Create an offset const in your code so you can easily change the number of tweets a user sees on the Home page

@@ -52,6 +52,14 @@ book: [{
 
 - You can get rid of the mounting warning with this article: https://www.robinwieruch.de/react-warning-cant-call-setstate-on-an-unmounted-component/
 
+- You can add a unique ID to your messages when you push them to the server
+```
+// At the top, bring in the ObjectID object
+var ObjectID = require('mongodb').ObjectID;
+
+// Then use the _id key and the new ObjectID() function when you push
+{$push: {todos: {_id: new ObjectID(), todo: req.body.todoItem}}}
+```
 
 
 ### SMALL OFFSET CHALLENGE

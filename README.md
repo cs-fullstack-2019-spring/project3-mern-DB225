@@ -24,7 +24,7 @@ Make sure you include the following pages:
 ### While NOT logged in (6 pts)
 #### Home (1 pt)
 - Show a Sign In Form
-- Show most recent tweets from everyone with 5 tweet offset
+- Show 5 most recent tweets of all public tweets sorted by latest.
 #### Create a new User (3 pts)
 - Include the following Username, Password, Image, Background Image
 #### Search Tweets (2 pts)
@@ -32,14 +32,14 @@ Make sure you include the following pages:
 
 ### While the User IS logged In (10 pts)
 #### Home (2 pts)
-- Show most recent tweets from everyone with 5 tweet offset
+- Show 5 most recent tweets of all tweets sorted by latest.
 #### Personal Tweets (5 pts)
 - Add New Tweet
 - - Include a required Tweet message and optional image URL for each tweet 
-- - Include a checkbox for tweets to only be seen by logged in user
+- - Include a checkbox for tweets to only be seen by logged in user (private tweets)
 - Include edit button for each tweet only by creator of tweet
 #### Search Tweets (3 pts)
-- Show results of searched tweets
+- Show results of searched tweets.
 
 ### Notes
 - You can create an array of tweet objects in your model like this:
@@ -66,5 +66,5 @@ var ObjectID = require('mongodb').ObjectID;
 - Create an offset const in your code so you can easily change the number of tweets a user sees on the Home page
 
 ### DIFFICULT FOLLOW CHALLENGE
-- Include an additional page to show tweets people you follow
+- Include an additional page to show tweets of people you follow
 - - Add friends from the all tweets page by clicking on the “star” next to their name.

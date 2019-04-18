@@ -3,6 +3,7 @@
 # Requirements (Total of 20 points)
 
 ### Due Date: Thursday, April 25 at 8am
+### Presentation at 9am
 
 ### Aesthetics (4 pts)
 Use HTML, CSS, and JavaScript to make your portfolio aesthetically pleasing.

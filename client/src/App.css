@@ -35,3 +35,12 @@
     transform: rotate(360deg);
   }
 }
+
+.profile{
+  width:120px;
+  height:100%;
+  border-radius: 45px;
+  border: 1px solid black;
+  z-index: 255;
+  position: relative;
+}

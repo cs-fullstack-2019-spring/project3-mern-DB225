@@ -50,7 +50,7 @@ class MyTweets extends Component {
                     </p>
                     <p>
                         <label htmlFor={"date"}>Date:</label>
-                        <input type="text" id={"date"} name={"date"}/>
+                        <input type="text" id={"date"} name={"date"} />
                     </p>
                     <button>Publish</button>
                 </form>

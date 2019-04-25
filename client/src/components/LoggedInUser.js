@@ -4,7 +4,7 @@ class LoggedInUser extends Component {
     constructor(props) {
         super(props);
         this.state={
-            tweet:[{title: ""}],
+            tweet:[],
         };
     }
 
@@ -34,18 +34,28 @@ class LoggedInUser extends Component {
 
 
     render() {
+        const array= this.state.tweet.map((eachTweet,index)=>{
+           return(
+               <div key={index}>
+                   <h3>{eachTweet.title}</h3>
+                   <p>
+                       <img src={eachTweet.image} alt="tweetImage" width='50px'/>
+                   </p>
+                   <p>{eachTweet.inputText}</p>
+                   <hr/>
+               </div>
+           )
+        });
         return (
             <div>
                 <p>
-                    <img src={this.props.image} alt="profile" width='80px' height='100%'/>
+                    <img src={this.props.image} alt="profile" className='profile'/>
                 </p>
                 <p>
-                    <img src={this.props.background_image} alt="background" width='80px' height='100%'/>
+                    <img src={this.props.background_image} alt="background" width='500px' height='100%'/>
                 </p>
-                <hr/>
                 <h1>{this.props.username}</h1>
-                {/*<p>{this.props.tweet.title}</p>*/}
-                {this.state.tweet[0].title}
+                {array}
             </div>
         );
     }

@@ -171,5 +171,22 @@ router.post('/addTweet', (req,res)=>{
         });
 });
 
+//Edit a tweet
+router.get('/edit/:id', (req, res)=>{
+    userTweetCollection.findOne({_id: req.params.id}, (errors, results)=>{
+        if (errors) res.send(errors);
+        else res.send(results);
+    })
+});
+
+router.put('/', (req, res)=>{
+    userTweetCollection.updateOne({_id: req.body._id},
+        req.body, (errors)=>{
+            if (errors) res.send(errors);
+            else res.send("Updated!!!");
+        });
+});
+
+
 
 module.exports = router;

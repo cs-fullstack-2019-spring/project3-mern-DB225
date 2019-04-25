@@ -36,12 +36,12 @@ class LoggedInUser extends Component {
     render() {
         const array= this.state.tweet.map((eachTweet,index)=>{
            return(
-               <div key={index}>
-                   <h3>{eachTweet.title}</h3>
-                   <p>
-                       <img src={eachTweet.image} alt="tweetImage" width='50px'/>
+               <div key={index} className='tweetStyle'>
+                   <h3 className='tweetTitle'>{eachTweet.title}</h3>
+                   <p className='tweetDraw'>
+                       <img src={eachTweet.image} alt="tweetImage" width='120px'/>
                    </p>
-                   <p>{eachTweet.inputText}</p>
+                   <p className='tweetMessage'>{eachTweet.inputText}</p>
                    <hr/>
                </div>
            )
@@ -50,11 +50,10 @@ class LoggedInUser extends Component {
             <div>
                 <p>
                     <img src={this.props.image} alt="profile" className='profile'/>
-                </p>
-                <p>
-                    <img src={this.props.background_image} alt="background" width='500px' height='100%'/>
+                    <img src={this.props.background_image} alt="background"className='profile2'/>
                 </p>
                 <h1>{this.props.username}</h1>
+                <hr/>
                 {array}
             </div>
         );

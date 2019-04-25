@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PublicTweets from "./PublicTweets";
 
 class SignIn extends Component {
     constructor(props) {
@@ -50,6 +51,7 @@ class SignIn extends Component {
                         </p>
                         <button>Sign In</button>
                     </form>
+                    <PublicTweets />
                 </div>
             );
         }

@@ -37,7 +37,6 @@ class LoggedInUser extends Component {
         const array= this.state.tweet.map((eachTweet,index)=>{
            return(
                <div key={index} className='tweetStyle'>
-                   <h3 className='tweetTitle'>{eachTweet.title}</h3>
                    <p className='tweetDraw'>
                        <img src={eachTweet.image} alt="tweetImage" width='120px'/>
                    </p>

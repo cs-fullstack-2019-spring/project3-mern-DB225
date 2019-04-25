@@ -21,7 +21,6 @@ class MyTweets extends Component {
             body: JSON.stringify({
                 username: this.props.username,
                 tweet: {
-                    title: e.target.title.value,
                     inputText: e.target.inputText.value,
                     image:e.target.image.value,
                     date:e.target.date.value,
@@ -36,10 +35,6 @@ class MyTweets extends Component {
             <div>
                 <h1>My Tweets</h1>
                 <form onSubmit={this.TweetSubmit}>
-                    <p>
-                        <label htmlFor={"title"}>Title:</label>
-                        <input type="text" id={"title"} name={"title"}/>
-                    </p>
                     <p>
                         <label htmlFor={"inputText"}>Text:</label>
                         <input type="text" id={"inputText"} name={"inputText"}/>

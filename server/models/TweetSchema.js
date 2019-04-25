@@ -8,7 +8,6 @@ var TweetSchema = new Schema({
     image: String,
     background_image:String,
     tweet:[{
-        title:String,
         inputText: {type: String, required:true},
         image:String,
         date: {type:Date, default:Date.now}

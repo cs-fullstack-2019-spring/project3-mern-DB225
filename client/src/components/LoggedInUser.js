@@ -1,52 +1,8 @@
 import React, {Component} from 'react';
+import PublicTweets from "./PublicTweets";
 
 class LoggedInUser extends Component {
-    constructor(props) {
-        super(props);
-        this.state={
-            tweet:[],
-        };
-    }
-
-    componentDidMount() {
-        this.renderTweet();
-    }
-
-    renderTweet=()=>{
-        // e.preventDefault();
-        fetch('/users/mytweets',{
-            method:"POST",
-            headers:{
-                "Accept": "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                username: this.props.username,
-            }),
-        })
-            .then(data=>data.json())
-            .then(response=>
-            {
-                console.log(response);
-                this.setState({tweet:response.tweet});
-            })
-    };
-
-
     render() {
-        const array= this.state.tweet.map((eachTweet,index)=>{
-           return(
-               <div key={index} className='tweetStyle'>
-                   <p className='tweetDraw'>
-                       <img src={eachTweet.image} alt="tweetImage" width='120px'/>
-                   </p>
-                   <p className='tweetMessage'>{eachTweet.inputText}</p>
-                   <button>Edit</button>
-                   <button>Delete</button>
-                   <hr/>
-               </div>
-           )
-        });
         return (
             <div>
                 <p>
@@ -55,7 +11,7 @@ class LoggedInUser extends Component {
                 </p>
                 <h1>{this.props.username}</h1>
                 <hr/>
-                {array}
+                <PublicTweets />
             </div>
         );
     }

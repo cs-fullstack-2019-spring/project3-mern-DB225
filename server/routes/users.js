@@ -150,6 +150,7 @@ router.get('/', (req, res, next) => {
 });
 
 
+//Show the personal tweets
 router.post('/mytweets', (req, res)=>{
     // finds one user name from the cookie (session) data
     userTweetCollection.findOne({username: req.body.username}, (errors, results)=>{
@@ -157,6 +158,13 @@ router.post('/mytweets', (req, res)=>{
         console.log(req.body.username);
         if(results){ return res.send(results); }
         else{return res.send({message: "Didn't find a user!!!"})}
+    })
+});
+
+router.post('/allTweets', (req,res)=>{
+    userTweetCollection.find({}, (errors,results)=>{
+        if(errors) res.send(errors);
+        else res.send(results)
     })
 });
 

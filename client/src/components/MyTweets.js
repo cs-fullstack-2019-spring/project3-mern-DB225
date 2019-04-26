@@ -4,10 +4,35 @@ class MyTweets extends Component {
     constructor(props) {
         super(props);
         this.state={
-            isLoggedIn:false,
+            // isLoggedIn:false,
             notice:'',
+            tweet:[],
         }
     }
+
+    componentDidMount() {
+        this.renderTweet();
+    }
+
+    renderTweet=()=>{
+        fetch('/users/mytweets',{
+            method:"POST",
+            headers:{
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username: this.props.username,
+            }),
+        })
+            .then(data=>data.json())
+            .then(response=>
+            {
+                console.log(response);
+                this.setState({tweet:response.tweet});
+            })
+    };
+
     TweetSubmit=(e)=>{
         e.preventDefault();
 
@@ -31,6 +56,20 @@ class MyTweets extends Component {
             .then(response=>this.setState({notice:response}))
     };
     render() {
+        const array= this.state.tweet.map((eachTweet,index)=>{
+            return(
+                <div key={index} className='tweetStyle'>
+                    <p className='tweetDraw'>
+                        <img src={eachTweet.image} alt="tweetImage" width='120px'/>
+                    </p>
+                    <p className='tweetMessage'>{eachTweet.inputText}</p>
+                    <button onClick={this.fetchEditDetails}>Edit</button>
+                    <button>Delete</button>
+                    <hr/>
+                </div>
+            )
+        });
+
         return (
             <div>
                 <h1>My Tweets</h1>
@@ -50,6 +89,7 @@ class MyTweets extends Component {
                     <button>Publish</button>
                 </form>
                 {this.props.notice}
+                {array}
             </div>
         );
     }

@@ -63,7 +63,7 @@ class MyTweets extends Component {
                         <img src={eachTweet.image} alt="tweetImage" width='120px'/>
                     </p>
                     <p className='tweetMessage'>{eachTweet.inputText}</p>
-                    <button onClick={this.fetchEditDetails}>Edit</button>
+                    <button>Edit</button>
                     <button>Delete</button>
                     <hr/>
                 </div>

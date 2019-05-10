@@ -1,14 +1,15 @@
 .App {
   text-align: center;
+  border: 1px solid black;
+    border-radius: 15px;
+    margin-left: 150px;
+    margin-right: 150px;
 }
 
 .space{
   margin: 15px;
 }
 
-body{
-    margin: 5% auto;
-}
 
 .App-header {
   background-color: #282c34;
@@ -35,58 +36,101 @@ body{
 }
 
 .profile{
-  width:200px;
-  height:60%;
-  border-radius: 90px;
-  border: 1px solid black;
+  width:160px;
+  height:155px;
+  border-radius: 80px;
+  border: 2px solid white;
   z-index: 255;
   position: relative;
-    left: 18%;
+    left: 2%;
+    bottom: 25px;
 }
 
 .profile2{
-    width:500px;
-    height:100%;
+    width:50%;
+    height:70%;
     border-radius: 10px;
     position: relative;
-    right: 7%;
+    right: 4%;
 }
 
-.tweetStyle{
-    background-color: #f0ebeb;
-    margin-right: 32%;
-    margin-left: 32%;
-    margin-top: 2%;
-    border: 1px solid black;
-    border-radius: 8px;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-areas:
-        "tweetDraw tweetMessage";
-}
-
-.tweetDraw{
-    grid-area: tweetDraw;
-}
-
-.tweetTitle{
-    grid-area: tweetTitle;
-}
-
-.tweetMessage{
-    grid-area: tweetMessage;
+input{
+    height: 20px;
+    border: 2px solid black;
 }
 
 a{
     text-decoration: none;
-    color: snow;
-    background-color: navy;
 }
 
 button{
-    width: 110px;
-    height: 25px;
-    border-radius: 10px;
+    width: 90px;
+    height: 45px;
+    border: #bd081c;
+    border-radius: 25px;
     color: snow;
-    background-color: navy;
+    background-color: #bd081c;
+    font-size: large;
+    cursor: pointer;
+}
+
+.button{
+    width: 60px;
+    height: 23px;
+    border-radius: 25px;
+    color: snow;
+    background-color: #bd081c;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+input{
+    border-radius: 5px;
+}
+
+.slider-wrapper {
+    font-size: 40px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider {
+    height: 50px;
+    overflow: hidden;
+    padding: 0 10px;
+}
+
+.slider > div {
+    box-sizing: border-box;
+    color: snow;
+    height: 50px;
+    margin-bottom: 50px;
+    padding: 0 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.text1 {
+    background-color: #af0606;
+    animation: slide 5s linear infinite;
+}
+
+.text2 {
+    background-color: #af0606;
+}
+
+.text3 {
+    background-color: #af0606;
+}
+
+@keyframes slide {
+    0% { margin-top: -300px; }
+    5% { margin-top: -200px; }
+    33% { margin-top: -200px; }
+    38% { margin-top: -100px; }
+    66% { margin-top: -100px; }
+    72% { margin-top: -0; }
+    100% { margin-top: 0; }
 }

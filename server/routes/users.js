@@ -82,7 +82,7 @@ router.post('/newuser',
     ),
     // If the signup strategy is successful, send "User Created!!!"
     function(req, res) {
-      res.send('User Created!!!');
+      res.send('AYOKA!!!');
     });
 
 // If a new user signup strategy failed, it's redirected to this route
@@ -175,7 +175,7 @@ router.post('/addTweet', (req,res)=>{
         console.log(req.body);
         console.log(req.body.tweet);
             if(errors) res.send(errors);
-            else res.send("ADDED!!!");
+            else res.send("DONE!!!");
         });
 });
 
@@ -191,7 +191,7 @@ router.put('/', (req, res)=>{
     userTweetCollection.updateOne({_id: req.body._id},
         req.body, (errors)=>{
             if (errors) res.send(errors);
-            else res.send("Updated!!!");
+            else res.send("UPDATED!!!");
         });
 });
 

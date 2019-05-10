@@ -39,7 +39,15 @@ class SignIn extends Component {
         if(!this.state.isLoggedIn) {
             return(
                 <div>
-                    <h1>Welcome to Twitter</h1>
+                    <h1>Ayoka!</h1>
+                    <div className="slider-wrapper">
+                    <div className="slider">
+                        <div className="text1">Enlarge</div>
+                        <div className="text2">Create</div>
+                        <div className="text3">Imagine</div>
+                    </div>
+                    Your World...
+                    </div>
                     <form onSubmit={this.submitSignIn}>
                         <p>
                             <label htmlFor={"username"}>Username:</label>

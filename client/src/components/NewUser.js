@@ -4,7 +4,7 @@ class NewUser extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            message: "",
+            message: '',
         };
     }
 
@@ -25,13 +25,13 @@ class NewUser extends Component {
             }),
         })
             .then(data => data.json())
-            .then(response => this.setState({message: response}))
+            .then(response => this.setState({message:response}))
     };
 
     render() {
         return (
             <div>
-                <h1>New User</h1>
+                <h1>Register</h1>
                 <form onSubmit={this.submitAddUserForm}>
                     <p>
                         <label htmlFor={"username"}>Username:</label>
@@ -42,11 +42,11 @@ class NewUser extends Component {
                         <input id={"password"} type="password" name='password' placeholder="Enter password"/>
                     </p>
                     <p>
-                        <label htmlFor={"image"}>Image Profile:</label>
+                        <label htmlFor={"image"}>Profile Pic:</label>
                         <input type="text"  id={'image'} placeholder="Your Pic"/>
                     </p>
                     <p>
-                        <label htmlFor={"background_image"}>Background Image:</label>
+                        <label htmlFor={"background_image"}>Background:</label>
                         <input type="text" id={'background_image'} name="background_image" placeholder="Your Background"/>
                     </p>
                     <button>Create</button>

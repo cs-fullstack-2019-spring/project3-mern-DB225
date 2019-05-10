@@ -21,7 +21,6 @@ class PublicTweets extends Component {
 
             },
             body: JSON.stringify({
-                username:this.props.username,
                 tweet: {
                     inputText: this.props.inputText,
                     image:this.props.image,
@@ -32,29 +31,29 @@ class PublicTweets extends Component {
             .then(response => response.json())
             .then(response => {
                 this.setState({
-                    tweet: response.tweet
+                    tweet:response
                 })
             })
     };
 
     render() {
-        const mappedTweet = this.state.tweet && this.state.tweet.map((eachEl,index)=>{
+        const mappedTweetArray = this.state.tweet && this.state.tweet.map((eachEl,index)=>{
            return(
-               <div key={index} className='tweetStyle'>
-                   <p className='tweetDraw'>
-                       <img src={eachEl.image} alt="tweetImage" width='120px'/>
-                   </p>
-                   <p className='tweetMessage'>{eachEl.inputText}</p>
-                   <button>Edit</button>
-                   <button>Delete</button>
-                   <hr/>
+               <div key={index}>
+                   {eachEl.tweet.map((c, i) => (
+                       <div key={i}>
+                           <img src={c.image} alt="tweetImage" width='120px'/>
+                           <h3>{c.inputText}</h3>
+                           <hr />
+                       </div>
+                   ))}
                </div>
            )
         });
         return (
             <div>
-                <h1>Test</h1>
-                {mappedTweet}
+                <h1>....</h1>
+                {mappedTweetArray}
             </div>
         );
     }

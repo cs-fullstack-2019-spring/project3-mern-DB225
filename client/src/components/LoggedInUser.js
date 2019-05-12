@@ -7,6 +7,7 @@ class LoggedInUser extends Component {
         this.state={
             notice:'',
             tweet:[],
+            date: new Date().toLocaleTimeString(),
         }
     }
 
@@ -25,7 +26,6 @@ class LoggedInUser extends Component {
                 tweet: {
                     inputText: e.target.inputText.value,
                     image:e.target.image.value,
-                    date:e.target.date.value,
                 }
             }),
         })
@@ -42,6 +42,7 @@ class LoggedInUser extends Component {
                     <img src={this.props.background_image} alt="background"className='profile2'/>
                 </p>
                 <h2>{this.props.username}</h2>
+               <p>Logged at {this.state.date}</p>
 
                 <div>
                     <h1>What's Up?</h1>
@@ -53,10 +54,6 @@ class LoggedInUser extends Component {
                         <p>
                             <label htmlFor={"image"}>Image:</label>
                             <input type="text" id={"image"} name={"image"}/>
-                        </p>
-                        <p>
-                            <label htmlFor={"date"}>Date:</label>
-                            <input type="text" id={"date"} name={"date"} />
                         </p>
                         <button>Publish</button>
                     </form>

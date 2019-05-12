@@ -24,7 +24,6 @@ class PublicTweets extends Component {
                 tweet: {
                     inputText: this.props.inputText,
                     image:this.props.image,
-                    date:this.props.date,
                 }
             }),
         })
@@ -42,9 +41,9 @@ class PublicTweets extends Component {
                <div key={index}>
                    {eachEl.tweet.map((c, i) => (
                        <div key={i}>
-                           <img src={c.image} alt="tweetImage" width='120px'/>
-                           <h3>{c.inputText}</h3>
                            <hr />
+                           <img src={c.image} alt="tweetImage" width='120px'/>
+                           <p>{c.inputText}</p>
                        </div>
                    ))}
                </div>

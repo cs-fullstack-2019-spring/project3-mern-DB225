@@ -47,6 +47,7 @@ class MyTweets extends Component {
 
         return (
             <div>
+                <h1>MY ENTRIES</h1>
                 {array}
             </div>
         );

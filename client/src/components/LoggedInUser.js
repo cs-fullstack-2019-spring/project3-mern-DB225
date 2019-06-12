@@ -8,8 +8,16 @@ class LoggedInUser extends Component {
             notice:'',
             tweet:[],
             date: new Date().toLocaleTimeString(),
-        }
+            isChecked:true,
+        };
+        this.handleClick = this.handleClick.bind(this);
     }
+
+    handleClick=()=>{
+      this.setState(rep=>({
+          isChecked: !rep.isChecked
+      }))
+    };
 
     TweetSubmit=(e)=>{
         e.preventDefault();
@@ -34,12 +42,13 @@ class LoggedInUser extends Component {
     };
 
 
+
     render() {
         return (
             <div>
                 <p>
                     <img src={this.props.image} alt="profile" className='profile'/>
-                    <img src={this.props.background_image} alt="background"className='profile2'/>
+                    <img src={this.props.background_image} alt="background" className='profile2'/>
                 </p>
                 <h2>{this.props.username}</h2>
                <p>Logged at {this.state.date}</p>
@@ -54,6 +63,11 @@ class LoggedInUser extends Component {
                         <p>
                             <label htmlFor={"image"}>Image:</label>
                             <input type="text" id={"image"} name={"image"}/>
+                        </p>
+                        <p>
+                            <label htmlFor={"checkbox"}>Private?</label>
+                            <input type="checkbox" id={"checkbox"} name={"checkbox"} onClick={this.handleClick}/>
+                            {this.state.isChecked?"no":"yes"}
                         </p>
                         <button>Publish</button>
                     </form>

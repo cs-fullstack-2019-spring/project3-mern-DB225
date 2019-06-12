@@ -39,7 +39,7 @@ class SignIn extends Component {
         if(!this.state.isLoggedIn) {
             return(
                 <div>
-                    <h1>Ayoka!</h1>
+                    <h1>Sviaz!</h1>
                     <div className="slider-wrapper">
                     <div className="slider">
                         <div className="text1">Enlarge</div>

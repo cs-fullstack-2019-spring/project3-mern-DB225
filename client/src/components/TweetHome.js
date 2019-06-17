@@ -14,6 +14,8 @@ class TweetHome extends Component {
             image:'',
             background_image:'',
             isLoggedIn:false,
+            searchInfo:[],
+            mappedResults:[],
         };
     }
 
@@ -38,6 +40,44 @@ class TweetHome extends Component {
         fetch('/')
             .then(data=>data.text())
     };
+
+    searchSubmit = (e) =>{
+        e.preventDefault();
+        fetch('/users/search', {
+            method: 'POST',
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                searchBar: e.target.searchBar.value,
+            })
+        })
+            .then((data) => data.json())
+            .then((data) => {
+                if (data) {
+                    this.setState({searchInfo:data});
+                    this.resultsMap()
+                } else {
+                    this.setState({searchInfo:null});
+                }
+            })
+
+    };
+
+    resultsMap = () => {
+        let mappedResults = this.state.searchInfo.map((eachResult)=> {
+            return(
+                <div>
+                    <p>{eachResult.inputText}</p>
+                    <img src={eachResult.image} alt="post image"/>
+                    <hr/>
+                </div>
+            )
+        });
+        this.setState({mappedResults:mappedResults})
+    };
+
 
     render() {
         if(!this.state.isLoggedIn) {
@@ -70,6 +110,13 @@ class TweetHome extends Component {
                     <Link to={'/'} className={'space'} onClick={this.userLogOut}>
                         SIGN OUT
                     </Link>
+                        <form className='search' onSubmit={this.searchSubmit}>
+                            <label htmlFor={'searchBar'}>Search: </label>
+                            <input type="text" name={'searchBar'} />
+                            <button className={"button"}>Go</button>
+                        </form>
+                        <br/>
+                        {this.state.mappedResults}
                     </div>
                     <Route exact path={'/'} component={()=><LoggedInUser username={this.state.username} image={this.state.image} background_image={this.state.background_image} userLoggedIn={this.userLoggedIn}/>} />
                     <Route path={'/mytweets'} component={()=><MyTweets username={this.state.username} userLoggedIn={this.userLoggedIn}/>} />

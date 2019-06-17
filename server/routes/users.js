@@ -82,7 +82,7 @@ router.post('/newuser',
     ),
     // If the signup strategy is successful, send "User Created!!!"
     function(req, res) {
-      res.send('AYOKA!!!');
+      res.send('GOOD JOB!!!');
     });
 
 // If a new user signup strategy failed, it's redirected to this route
@@ -180,19 +180,57 @@ router.post('/addTweet', (req,res)=>{
 });
 
 //Edit a tweet
-router.get('/edit/:id', (req, res)=>{
-    userTweetCollection.findOne({_id: req.params.id}, (errors, results)=>{
+router.post('/editTweet', (req,res)=>{
+    userTweetCollection.findOneAndUpdate(
+        {_id: req.body.tweet},
+        {
+            $set: {
+                'inputText.$': req.body.inputText,
+                'image.$': req.body.image,
+            }
+        },
+        (errors, results)=>{
+            if(errors) res.send(errors);
+            else res.send("Updated");
+        });
+});
+
+
+router.post('/searchUsers', (req, res) => {
+    userTweetCollection.findOne({username: req.body.username}, (errors, results) => {
         if (errors) res.send(errors);
-        else res.send(results);
+        else {
+            res.send(results);
+            console.log(results)
+        }
     })
 });
 
-router.put('/', (req, res)=>{
-    userTweetCollection.updateOne({_id: req.body._id},
-        req.body, (errors)=>{
+router.post('/search', (req, res) => {
+    userTweetCollection.find(
+        {"tweet.inputText": {"$regex": req.body.searchBar, "$options": "i"}}, (errors, results) => {
             if (errors) res.send(errors);
-            else res.send("UPDATED!!!");
-        });
+            else {
+                let allresults = [];
+                let searchResults = [];
+                for (let i = 0; i < results.length; i++) {
+                    for (let j = 0; j < results[i].tweet.length; j++) {
+                        allresults.push(
+                            {
+                                inputText:results[i].tweet[j].inputText,
+                                image:results[i].tweet[j].image,
+                            }
+                        )
+                    }
+                }
+                for(let i=0; i<allresults.length; i++){
+                    if(allresults[i].inputText.includes(req.body.searchBar)){
+                        searchResults.push(allresults[i])
+                    }
+                }
+                res.send(searchResults);
+            }
+        })
 });
 
 
